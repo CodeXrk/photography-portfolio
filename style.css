@@ -101,3 +101,155 @@ footer {
   background: #f4f4f4;
   margin-top: 2rem;
 }
+
+/* ======================================
+   Global Styles & Reset
+====================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #fff;
+}
+
+/* ======================================
+   Navigation Header
+====================================== */
+header {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background: #f07c00;
+  border-radius: 4px;
+}
+
+/* ======================================
+   Hero Section
+====================================== */
+#hero {
+  background: url('images/hero.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+#hero .hero-content {
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.5);  /* Semi-transparent overlay for readability */
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+#hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+#hero .btn {
+  text-decoration: none;
+  background: #f07c00;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+}
+
+#hero .btn:hover {
+  background: #d66b00;
+}
+
+/* ======================================
+   Photography Sectors Section
+====================================== */
+#sectors {
+  padding: 4rem 2rem;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+#sectors h2 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.sectors-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.sector {
+  flex: 1 1 200px;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.sector img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.sector:hover {
+  transform: translateY(-10px);
+}
+
+.sector h3 {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+/* ======================================
+   Footer
+====================================== */
+footer {
+  padding: 1rem;
+  background: #333;
+  color: #fff;
+  text-align: center;
+}
+

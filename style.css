@@ -137,6 +137,77 @@ nav a.active {
   transform: scale(1.05);
 }
 
+/* Carousel Section */
+#carousel-section {
+  position: relative;
+  margin: 2rem auto;
+  max-width: 90%;
+  overflow: hidden;
+}
+
+.carousel {
+  position: relative;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Each carousel item takes full width */
+.carousel-item {
+  min-width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: relative;
+}
+
+/* Active item is visible */
+.carousel-item.active {
+  opacity: 1;
+}
+
+/* Style the carousel images */
+.carousel-item img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Caption styling */
+.carousel-caption {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+/* Navigation button styling */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+
 /* ======================================
    Photography Sectors Section
 ====================================== */

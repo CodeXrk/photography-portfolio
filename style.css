@@ -1,109 +1,5 @@
-/* General Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* Basic body styling */
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-}
-
-/* Navigation styling (reuse your existing styles or customize) */
-header {
-  background: #333;
-  color: #fff;
-  padding: 1rem 0;
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-}
-nav ul li {
-  margin: 0 1rem;
-}
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-}
-nav ul li a.active,
-nav ul li a:hover {
-  background: #555;
-  border-radius: 4px;
-}
-
-/* Carousel Container */
-.carousel {
-  position: relative;
-  max-width: 80%;
-  margin: 2rem auto;
-  overflow: hidden;
-}
-
-/* Carousel Inner */
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-/* Carousel Item */
-.carousel-item {
-  min-width: 100%;
-  transition: opacity 0.5s ease;
-  opacity: 0;
-  position: relative;
-}
-.carousel-item.active {
-  opacity: 1;
-}
-
-/* Image Styling */
-.carousel-item img {
-  width: 100%;
-  display: block;
-  border-radius: 8px;
-}
-
-/* Navigation Controls */
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(51, 51, 51, 0.5);
-  border: none;
-  color: #fff;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  z-index: 100;
-  transition: background 0.3s;
-}
-.carousel-control:hover {
-  background: rgba(51, 51, 51, 0.8);
-}
-.carousel-control.prev {
-  left: 10px;
-}
-.carousel-control.next {
-  right: 10px;
-}
-
-/* Footer styling */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #f4f4f4;
-  margin-top: 2rem;
-}
-
 /* ======================================
-   Global Styles & Reset
+   Global Reset & Variables
 ====================================== */
 * {
   margin: 0;
@@ -111,11 +7,35 @@ footer {
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color: #f07c00;
+  --secondary-color: #333;
+  --light-color: #fff;
+  --gradient-light: linear-gradient(135deg, #fdfbfb, #ebedee);
+}
+
+/* ======================================
+   Keyframe Animations
+====================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======================================
+   Body
+====================================== */
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.6;
-  color: #333;
-  background: #fff;
+  color: var(--secondary-color);
+  background: var(--light-color);
 }
 
 /* ======================================
@@ -123,11 +43,11 @@ body {
 ====================================== */
 header {
   background: rgba(0, 0, 0, 0.8);
-  color: #fff;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 nav ul {
@@ -142,37 +62,54 @@ nav li {
 
 nav a {
   text-decoration: none;
-  color: #fff;
+  color: var(--light-color);
   font-weight: bold;
   padding: 0.5rem 1rem;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 nav a:hover,
 nav a.active {
-  background: #f07c00;
+  background: var(--primary-color);
   border-radius: 4px;
+  transform: scale(1.05);
 }
 
 /* ======================================
    Hero Section
 ====================================== */
 #hero {
+  position: relative;
   background: url('images/hero.jpg') no-repeat center center/cover;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--light-color);
   text-align: center;
   padding: 0 1rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  z-index: 1;
 }
 
 #hero .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 800px;
-  background: rgba(0, 0, 0, 0.5);  /* Semi-transparent overlay for readability */
+  background: rgba(0, 0, 0, 0.5);  /* Semi-transparent overlay */
   padding: 2rem;
   border-radius: 8px;
+  animation: fadeInUp 1s ease-out;
 }
 
 #hero h1 {
@@ -187,31 +124,104 @@ nav a.active {
 
 #hero .btn {
   text-decoration: none;
-  background: #f07c00;
-  color: #fff;
+  background: var(--primary-color);
+  color: var(--light-color);
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   font-size: 1.1rem;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 #hero .btn:hover {
   background: #d66b00;
+  transform: scale(1.05);
 }
+
+/* Carousel Section */
+#carousel-section {
+  position: relative;
+  margin: 2rem auto;
+  max-width: 90%;
+  overflow: hidden;
+}
+
+.carousel {
+  position: relative;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Each carousel item takes full width */
+.carousel-item {
+  min-width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: relative;
+}
+
+/* Active item is visible */
+.carousel-item.active {
+  opacity: 1;
+}
+
+/* Style the carousel images */
+.carousel-item img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Caption styling */
+.carousel-caption {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+/* Navigation button styling */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
 
 /* ======================================
    Photography Sectors Section
 ====================================== */
 #sectors {
   padding: 4rem 2rem;
-  background: #f9f9f9;
+  background: var(--gradient-light);
   text-align: center;
 }
 
 #sectors h2 {
   margin-bottom: 2rem;
   font-size: 2.5rem;
-  color: #333;
+  color: var(--secondary-color);
+  animation: fadeInUp 1s ease-out;
 }
 
 .sectors-container {
@@ -224,18 +234,28 @@ nav a.active {
 .sector {
   flex: 1 1 200px;
   max-width: 300px;
-  transition: transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
 }
+
+/* Stagger the sector animations */
+.sector:nth-child(1) { animation-delay: 0.2s; }
+.sector:nth-child(2) { animation-delay: 0.4s; }
+.sector:nth-child(3) { animation-delay: 0.6s; }
+.sector:nth-child(4) { animation-delay: 0.8s; }
 
 .sector img {
   width: 100%;
   border-radius: 8px;
   display: block;
   margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
-.sector:hover {
-  transform: translateY(-10px);
+.sector:hover img {
+  transform: scale(1.05);
 }
 
 .sector h3 {
@@ -248,8 +268,8 @@ nav a.active {
 ====================================== */
 footer {
   padding: 1rem;
-  background: #333;
-  color: #fff;
+  background: var(--secondary-color);
+  color: var(--light-color);
   text-align: center;
+  animation: fadeInUp 0.8s ease-out;
 }
-

@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Photography Portfolio</title>
-  <!-- Link to your CSS file -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Navigation Header -->
@@ -52,9 +51,59 @@
     </div>
   </section>
 
+   <!-- Carousel Section -->
+  <section id="carousel-section">
+    <div class="carousel">
+      <div class="carousel-inner">
+        <!-- Carousel item for Portrait Photography -->
+        <div class="carousel-item active">
+          <a href="portrait.html">
+            <img src="images/portrait.jpg" alt="Portrait Photography" />
+            <div class="carousel-caption">Portrait</div>
+          </a>
+        </div>
+        <!-- Carousel item for Landscape Photography -->
+        <div class="carousel-item">
+          <a href="landscape.html">
+            <img src="images/landscape.jpg" alt="Landscape Photography" />
+            <div class="carousel-caption">Landscape</div>
+          </a>
+        </div>
+        <!-- Carousel item for Wildlife Photography -->
+        <div class="carousel-item">
+          <a href="wildlife.html">
+            <img src="images/wildlife.jpg" alt="Wildlife Photography" />
+            <div class="carousel-caption">Wildlife</div>
+          </a>
+        </div>
+        <!-- Carousel item for Event Photography -->
+        <div class="carousel-item">
+          <a href="event.html">
+            <img src="images/event.jpg" alt="Event Photography" />
+            <div class="carousel-caption">Event</div>
+          </a>
+        </div>
+      </div>
+      <!-- Navigation Controls -->
+      <button class="carousel-control prev" aria-label="Previous Slide">&#10094;</button>
+      <button class="carousel-control next" aria-label="Next Slide">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- Optional Additional Content Section -->
+  <section id="sectors">
+    <h2>Explore More of My Work</h2>
+    <!-- Additional content can go here -->
+  </section>
+
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 My Photography Portfolio</p>
   </footer>
+
+  <!-- Carousel JavaScript -->
+  <script src="carousel.js"></script>
+  
 </body>
 </html>

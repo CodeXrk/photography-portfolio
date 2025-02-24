@@ -38,10 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
     prevSlide();
     resetAutoRotate();
   });
-  
-  // Reset auto-rotation when manually controlled
-  function resetAutoRotate() {
-    clearInterval(autoRotate);
-    autoRotate = setInterval(nextSlide, 5000);
-  }
+
+  // Optional: Auto-slide functionality (change slide every 5 seconds)
+  setInterval(function () {
+    currentIndex = (currentIndex + 1) % totalItems;
+    showSlide(currentIndex);
+  }, 5000);
 });
